@@ -7,9 +7,15 @@ Textual.viewFinishedLoading = function()
 	setTimeout(function() {
 			   Textual.scrollToBottomOfView()
 			   }, 500);
+	AdjustHeight();
 }
 
 Textual.viewFinishedReload = function()
 {
 	Textual.viewFinishedLoading();
 }
+
+function AdjustHeight() {
+        var height = document.getElementById("topic_bar").offsetHeight;
+        document.getElementById("body_home").style.top = height + 'px';
+}   
