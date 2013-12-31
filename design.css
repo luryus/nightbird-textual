@@ -1,0 +1,609 @@
+/* Basic Body Structure */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	word-wrap: break-word;
+}	
+
+b {
+	font-weight: 600;
+}
+
+p.chatLine {
+	white-space: nowrap;
+	margin-left: 0;
+	text-indent: 0;
+}
+
+body {
+	color: #fff;
+	height: 100%;
+ 	z-index: 100;
+	font-size: 9px;
+	overflow-y: visible;
+	background-color: #242424;
+	font-family: "Roboto";
+	width:100%;
+}
+
+body div#body_home {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	max-height: 99.99%;
+	position: absolute;
+	opacity: 0; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+}
+
+body[ltype=channel] div#body_home {
+	max-height: 96.5%;
+}
+
+body .line {
+ 	margin-top: -1px;
+ 	-webkit-transition: background-color 100ms linear;
+}
+
+body .line:hover {
+	background: #2d2d2d;
+}
+
+body .line:hover > p > .time {
+	color: #949494;
+}
+
+body[dir=ltr] .sender {
+	margin-left:0em;
+    border-right: solid transparent 0.6em;
+    text-align:right;
+    min-width: 7em;
+    width: 7em;
+    float:left;
+    white-space:nowrap;
+    overflow:hidden;
+    text-indent:0em;
+    vertical-align: top;
+	text-overflow: ellipsis;
+}
+
+body[dir=ltr] .sender:hover {
+	width: auto;
+}
+
+body[dir=rtl] .sender {
+	display: inline-block;
+}
+
+
+/* Loading Screen */
+
+body div#loading_screen {
+	position:absolute; 
+	top: 50%;
+	left: 50%;
+	margin-top: -11px;
+	margin-left: -150px;
+	width: 300px;
+	height: 21px;
+	font-size: 18px;
+	background: #181818;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	opacity: 1; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+}
+
+/* Time */
+
+body[dir=ltr] .time {
+	color: #646464;
+    text-align:right;
+    width:4em;
+    float:right;
+    white-space: nowrap;
+    vertical-align: top;
+    -webkit-transition: color 200ms linear;
+}
+
+/* Encryption Lock */
+
+.encryptionLock img {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+	margin-top: 2px;
+	padding-left: 0px;
+}
+
+/* Links */
+
+a {
+	color: #0080FF;
+	border-color: #0080FF;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #40A0FF;
+	border-color: #40A0FF;
+}
+
+/* Topic Bar */
+
+#topic_bar {
+	top: 0;
+	left: 0;
+	right: 0;
+	color: #fff;
+	z-index: 400;
+	opacity: 0; /* Set by JavaScript */
+	position: fixed;
+	background: #242424;
+	text-align: center;
+	padding: 5px 0.5em 5px;
+	border-bottom: 2px solid #848185;
+	/*-webkit-box-shadow: 0 1px 5px #777;*/
+	-webkit-transition: opacity 800ms linear;
+	-webkit-transition: background-color 400ms linear;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* Topic bar hover additions contributed with permission from the project:
+	<https://github.com/hbang/Simplified-Light-Modifications> */
+
+#topic_bar:hover {
+	overflow: visible;
+	white-space: normal;
+	opacity: 0.95;
+}
+
+#topic_bar a {
+	color: #0080FF;
+	border-color: #0080FF;
+	text-decoration: none;
+}
+
+#topic_bar a:hover {
+	color: #40A0FF;
+	border-color: #40A0FF;
+}
+
+/* Images */
+
+body a img {
+	border: 2px solid gray;
+}
+
+body img {
+	display: block;
+	max-width: 95%;
+	margin: 10px 15px 10px 15ex;
+}
+
+/* Remember Line */
+
+div[id=mark] {
+	position: relative;
+	z-index: 295;
+	margin-top: -1px;
+	border-bottom: 1px dashed;
+	border-color: #444;
+	-webkit-transition: 0.2s linear;
+}
+
+/* Historic Line */
+
+.historic 
+{
+	opacity: 0.6;
+}
+
+/* NOTICE/CTCP/WALLOPS */
+
+
+body div.line[ltype*=ctcp],
+body div.line[ltype*=notice],
+body div.line[ltype*=wallops] {
+	color: #f00;
+  	z-index: 191;
+	background: #400;
+  	position: relative;
+ 	padding: 2px 5px 2px 5px;
+	border-top: 1px solid #811;
+	border-bottom: 1px solid #811;
+}
+
+body div[ltype*=notice] .sender {
+	color: #f00;
+	font-weight: 500;
+}
+
+/* PRIVMSG */
+
+body div.line[ltype*=privmsg][highlight=false] {
+ 	padding: 3px 5px 3px 5px;
+}
+
+body div.line[ltype*=privmsg][highlight=true],
+body div.line[ltype*=action][highlight=true] {
+	font-weight: normal;
+ 	padding: 2px 5px 2px 5px;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
+  	background-color: #353535 !important;
+}
+
+body div[ltype="privmsg"] .message {
+	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 6em;
+    color: #bbb;
+}
+
+body div[ltype="privmsg"] .message:after {
+    content: "\200B";
+}
+
+body div[ltype*=privmsg] p[ltype*=myself] .message {
+	color: #aaa;
+}
+
+body div[ltype*=privmsg] .sender {
+	font-weight: 500;
+}
+
+/* ACTION */
+
+body div.line[ltype*=action] {
+ 	padding: 3px 5px 3px 5px;
+}
+
+body div[ltype="action"] .message {
+	color: #848851;
+}
+
+body div[ltype*=action] .sender {
+	font-weight: 500;
+}
+
+body div[ltype*=action] p[ltype*=myself] .sender {
+	color: #B8DFFF;
+}
+body div[ltype*=action] p[ltype*=myself] .message {
+	color: #848851;
+	margin-left: 6em;
+	overflow: hidden;
+	display: block;
+	white-space: normal;
+}
+
+body[dir=ltr] div[ltype*=action] .sender:before {
+	content: "\2022";
+	margin-right: 0.4em;
+}
+
+body[dir=ltr] div[ltype*=action] .sender:after {
+	content: "";
+  	/* margin-right: 0.4em; */
+}
+
+
+/* DEBUG/INVITE */
+
+body div.line[ltype*=invite],
+body div.line[ltype*=debug] ,
+body div.line[ltype*=rawhtml] {
+	color: #777;
+  	z-index: 190;
+	background: #222;
+  	position: relative;
+ 	padding: 2px 5px 2px 5px;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
+}
+
+/* GENERAL EVENT */
+
+body div.line[ltype*=join],
+body div.line[ltype*=part],
+body div.line[ltype*=kick],
+body div.line[ltype*=quit],
+body div.line[ltype*=kill],
+body div.line[ltype*=nick],
+body div.line[ltype*=mode],
+body div.line[ltype*=website],
+body div.line[ltype*=topic] {
+ 	padding: 3px 5px 3px 5px;
+	color: #848851;
+}
+
+
+
+body[dir=ltr] div[ltype*=join] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=kick] .message:before {
+	
+}
+
+body[dir=ltr] div[ltype*=part] .message:before,
+body[dir=ltr] div[ltype*=quit] .message:before {
+	
+}
+
+body[dir=ltr] div[ltype*=kick] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=part] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=quit] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=nick] .message:before {
+
+}
+
+body[dir=ltr] div[ltype*=nick] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=mode] .message:before {
+	
+}
+
+body[dir=ltr] div[ltype*=mode] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+body[dir=ltr] div[ltype*=topic] .message:before {
+	
+}
+
+body[dir=ltr] div[ltype*=topic] .message {
+  	color: #848851;
+  	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 7.6em;
+}
+
+/* Nickname Colors */
+
+body .inline_nickname {
+	font-weight: 500;
+}
+
+body div[ltype*=privmsg] .sender[ltype*=myself] { 
+	color: #B8DFFF; 
+}
+
+body .sender[ltype*=normal][colornumber='0'], 
+body .inline_nickname[colornumber='0'] {
+	color: #da5653; 
+}
+
+body .sender[ltype*=normal][colornumber='1'], 
+body .inline_nickname[colornumber='1'] {
+	color: #a3bf75; 
+}
+
+body .sender[ltype*=normal][colornumber='2'], 
+body .inline_nickname[colornumber='2'] {
+	color: #ab6def; 
+}
+
+body .sender[ltype*=normal][colornumber='3'], 
+body .inline_nickname[colornumber='3'] {
+	color: #C083F2; 
+}
+
+body .sender[ltype*=normal][colornumber='4'], 
+body .inline_nickname[colornumber='4'] {
+	color: #87def4; 
+}
+
+body .sender[ltype*=normal][colornumber='5'], 
+body .inline_nickname[colornumber='5'] {
+	color: #c8875c; 
+}
+
+body .sender[ltype*=normal][colornumber='6'], 
+body .inline_nickname[colornumber='6'] {
+	color: #75ade1; 
+}
+
+body .sender[ltype*=normal][colornumber='7'], 
+body .inline_nickname[colornumber='7'] {
+	color: #ff4943; 
+}
+
+body .sender[ltype*=normal][colornumber='8'], 
+body .inline_nickname[colornumber='8'] {
+	color: #b2cc00; 
+}
+
+body .sender[ltype*=normal][colornumber='9'], 
+body .inline_nickname[colornumber='9'] {
+	color: #99df35; 
+}
+
+body .sender[ltype*=normal][colornumber='10'], 
+body .inline_nickname[colornumber='10'] {
+	color: #05ffaa; 
+}
+
+body .sender[ltype*=normal][colornumber='11'], 
+body .inline_nickname[colornumber='11'] {
+	color: #ffe982; 
+}
+
+body .sender[ltype*=normal][colornumber='12'], 
+body .inline_nickname[colornumber='12'] {
+	color: #aadeff; 
+}
+
+body .sender[ltype*=normal][colornumber='13'], 
+body .inline_nickname[colornumber='13'] {
+	color: #36ff15; 
+}
+
+body .sender[ltype*=normal][colornumber='14'], 
+body .inline_nickname[colornumber='14'] {
+	color: #ff6076; 
+}
+
+body .sender[ltype*=normal][colornumber='15'], 
+body .inline_nickname[colornumber='15'] {
+	color: #b7b7b7; 
+}
+
+body .sender[ltype*=normal][colornumber='16'], 
+body .inline_nickname[colornumber='16'] { 
+	color: #706616;
+}
+
+body .sender[ltype*=normal][colornumber='17'], 
+body .inline_nickname[colornumber='17'] { 
+	color: #56a4da;
+}
+
+body .sender[ltype*=normal][colornumber='18'], 
+body .inline_nickname[colornumber='18'] { 
+	color: #d63724;
+}
+
+body .sender[ltype*=normal][colornumber='19'], 
+body .inline_nickname[colornumber='19'] { 
+	color: #b061af;
+}
+
+body .sender[ltype*=normal][colornumber='20'], 
+body .inline_nickname[colornumber='20'] { 
+	color: #5b9e4c;
+}
+
+body .sender[ltype*=normal][colornumber='21'], 
+body .inline_nickname[colornumber='21'] { 
+	color: #13826c;
+}
+
+body .sender[ltype*=normal][colornumber='22'], 
+body .inline_nickname[colornumber='22'] { 
+	color: #e63779;
+}
+
+body .sender[ltype*=normal][colornumber='23'], 
+body .inline_nickname[colornumber='23'] { 
+	color: #e45d59;
+}
+
+body .sender[ltype*=normal][colornumber='24'], 
+body .inline_nickname[colornumber='24'] { 
+	color: #1b51ae;
+}
+
+body .sender[ltype*=normal][colornumber='25'], 
+body .inline_nickname[colornumber='25'] { 
+	color: #4855ac;
+}
+
+body .sender[ltype*=normal][colornumber='26'], 
+body .inline_nickname[colornumber='26'] { 
+	color: #7f1d86;
+}
+
+body .sender[ltype*=normal][colornumber='27'], 
+body .inline_nickname[colornumber='27'] { 
+	color: #73643f;
+}
+
+body .sender[ltype*=normal][colornumber='28'], 
+body .inline_nickname[colornumber='28'] { 
+	color: #0b9578;
+}
+
+body .sender[ltype*=normal][colornumber='29'], 
+body .inline_nickname[colornumber='29'] { 
+	color: #569c96;
+}
+
+body .sender[ltype*=normal][colornumber='30'], 
+body .inline_nickname[colornumber='30'] { 
+	color: #08465f;
+}
+
+/* mIRC Color Codes */
+
+.effect[color-number='0']  { color: #ffffff; }
+.effect[color-number='1']  { color: #000000; }
+.effect[color-number='2']  { color: #000088; }
+.effect[color-number='3']  { color: #008800; }
+.effect[color-number='4']  { color: #ff0000; }
+.effect[color-number='5']  { color: #880000; }
+.effect[color-number='6']  { color: #880088; }
+.effect[color-number='7']  { color: #ff8800; }
+.effect[color-number='8']  { color: #ffff00; }
+.effect[color-number='9']  { color: #00ff00; }
+.effect[color-number='10'] { color: #008888; }
+.effect[color-number='11'] { color: #00ffff; }
+.effect[color-number='12'] { color: #0000ff; }
+.effect[color-number='13'] { color: #ff00ff; }
+.effect[color-number='14'] { color: #888888; }
+.effect[color-number='15'] { color: #cccccc; }
+
+.effect[bgcolor-number='0']  { background-color: #ffffff; }
+.effect[bgcolor-number='1']  { background-color: #000000; }
+.effect[bgcolor-number='2']  { background-color: #000088; }
+.effect[bgcolor-number='3']  { background-color: #008800; }
+.effect[bgcolor-number='4']  { background-color: #ff0000; }
+.effect[bgcolor-number='5']  { background-color: #880000; }
+.effect[bgcolor-number='6']  { background-color: #880088; }
+.effect[bgcolor-number='7']  { background-color: #ff8800; }
+.effect[bgcolor-number='8']  { background-color: #ffff00; }
+.effect[bgcolor-number='9']  { background-color: #00ff00; }
+.effect[bgcolor-number='10'] { background-color: #008888; }
+.effect[bgcolor-number='11'] { background-color: #00ffff; }
+.effect[bgcolor-number='12'] { background-color: #0000ff; }
+.effect[bgcolor-number='13'] { background-color: #ff00ff; }
+.effect[bgcolor-number='14'] { background-color: #888888; }
+.effect[bgcolor-number='15'] { background-color: #cccccc; }

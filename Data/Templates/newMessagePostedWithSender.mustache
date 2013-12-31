@@ -1,0 +1,46 @@
+{{! The 'line types' folder needs to be copied to a custom style to modify this file. }}
+
+<div 	ltype="{{lineType}}" 
+		command="{{rawCommand}}"
+		highlight="{{highlightAttributeRepresentation}}" 
+		class="line {{lineClassAttributeRepresentation}}" 
+		id="line-{{lineNumber}}"
+		time="{{lineRenderTime}}">
+		
+{{#isRemoteMessage}}
+	<p class="chatLine">
+{{^isRemoteMessage}}
+	<p class="chatLine" ltype="{{nicknameType}}">
+{{/isRemoteMessage}}
+
+		
+		
+{{#isEncrypted}}
+	{{{encryptedMessageLockTemplate}}}
+{{/isEncrypted}}
+
+		<span class="sender"
+			ondblclick="Textual.nicknameDoubleClicked()" 
+			oncontextmenu="Textual.openStandardNicknameContextualMenu()" 
+			ltype="{{nicknameType}}" 
+			nick="{{nickname}}" 
+			{{#nicknameColorHashingEnabled}} 
+				colornumber="{{nicknameColorNumber}}"
+			{{/nicknameColorHashingEnabled}}>{{formattedNickname}}
+		</span>
+
+		<span class="time">{{formattedTimestamp}}</span>
+
+		<span class="message" ltype="{{lineType}}">	
+			{{{formattedMessage}}}
+					
+			{{#inlineMediaAvailable}}
+			{{#inlineMediaArray}}
+						<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}')"><img src="{{{imageURL}}}" class="inlineimage" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none; max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+						{{/inlineMediaArray}}
+			{{/inlineMediaAvailable}}
+		</span>
+
+		
+	</p>
+</div>
