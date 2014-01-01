@@ -223,6 +223,15 @@ body div.line[ltype*=wallops] {
 	border-bottom: 1px solid #811;
 }
 
+body div.line[ltype*=ctcp] .message,
+body div.line[ltype*=notice] .message,
+body div.line[ltype*=wallops] .message {
+	white-space: normal;
+    display: block;
+    overflow: hidden;
+    margin-left: 6em;
+}
+
 body div[ltype*=notice] .sender {
 	color: #f00;
 	font-weight: 500;
