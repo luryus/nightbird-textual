@@ -221,6 +221,24 @@ body div.line[ltype*=wallops] {
 	border-bottom: 1px solid #811;
 }
 
+body div.line[ltype*=ctcp]:hover,
+body div.line[ltype*=notice]:hover,
+body div.line[ltype*=wallops]:hover {
+	background: #490000;
+}
+
+body div.line[ltype*=ctcp] > p > .time,
+body div.line[ltype*=notice] >  p > .time,
+body div.line[ltype*=wallops] >  p > .time {
+	color: #b40000;
+}
+
+body div.line[ltype*=ctcp]:hover > p > .time,
+body div.line[ltype*=notice]:hover >  p > .time,
+body div.line[ltype*=wallops]:hover >  p > .time {
+	color: #d40000;
+}
+
 body div.line[ltype*=ctcp] .message,
 body div.line[ltype*=notice] .message,
 body div.line[ltype*=wallops] .message {
