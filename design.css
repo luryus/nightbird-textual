@@ -234,7 +234,7 @@ body div.line[ltype*=wallops] .message {
 
 body div[ltype*=notice] .sender {
 	color: #f00;
-	font-weight: 500;
+	font-weight: 600;
 }
 
 /* PRIVMSG */
@@ -245,7 +245,7 @@ body div.line[ltype*=privmsg][highlight=false] {
 
 body div.line[ltype*=privmsg][highlight=true],
 body div.line[ltype*=action][highlight=true] {
-	font-weight: normal;
+	font-weight: 600;
  	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #444;
 	border-bottom: 1px solid #444;
@@ -269,7 +269,7 @@ body div[ltype*=privmsg] p[ltype*=myself] .message {
 }
 
 body div[ltype*=privmsg] .sender {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 /* ACTION */
@@ -283,7 +283,7 @@ body div[ltype="action"] .message {
 }
 
 body div[ltype*=action] .sender {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 body div[ltype*=action] p[ltype*=myself] .sender {
@@ -377,7 +377,7 @@ body[dir=ltr] div[ltype*=topic] .message:before {
 /* Nickname Colors */
 
 body .inline_nickname {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 body div[ltype*=privmsg] .sender[ltype*=myself] { 
