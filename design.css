@@ -3,7 +3,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-size: 100%;
 	word-wrap: break-word;
 }	
 
@@ -21,7 +20,6 @@ body {
 	color: #fff;
 	height: 100%;
  	z-index: 100;
-	font-size: 9px;
 	overflow-y: visible;
 	background-color: #242424;
 	font-family: "Roboto";
