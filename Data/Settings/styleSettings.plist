@@ -6,13 +6,6 @@
 	<string>%n</string>
 	<key>Timestamp Format</key>
 	<string>%H:%M:%S</string>
-	<key>Override Channel Font</key>
-	<dict>
-		<key>Font Name</key>
-		<string>Optima</string>
-		<key>Font Size</key>
-		<integer>12</integer>
-	</dict>
 	<key>Indentation Offset</key>
 	<integer>6</integer>
 	<key>Underlying Window Color</key>
