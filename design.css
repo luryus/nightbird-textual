@@ -331,7 +331,6 @@ body div.line[ltype*=debug] ,
 body div.line[ltype*=rawhtml] {
 	color: #777;
   	z-index: 190;
-	background: #222;
   	position: relative;
  	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #444;
