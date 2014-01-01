@@ -337,10 +337,16 @@ body div.line[ltype*=topic] {
 	color: #848851;
 }
 
-
-
-body[dir=ltr] div[ltype*=join] .message {
-  	color: #848851;
+body div.line[ltype*=join] .message,
+body div.line[ltype*=part] .message,
+body div.line[ltype*=kick] .message,
+body div.line[ltype*=quit] .message,
+body div.line[ltype*=kill] .message,
+body div.line[ltype*=nick] .message,
+body div.line[ltype*=mode] .message,
+body div.line[ltype*=website] .message,
+body div.line[ltype*=topic]  .message {
+	color: #848851;
   	white-space: normal;
     display: block;
     overflow: hidden;
@@ -356,64 +362,16 @@ body[dir=ltr] div[ltype*=quit] .message:before {
 	
 }
 
-body[dir=ltr] div[ltype*=kick] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
-}
-
-body[dir=ltr] div[ltype*=part] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
-}
-
-body[dir=ltr] div[ltype*=quit] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
-}
-
 body[dir=ltr] div[ltype*=nick] .message:before {
 
-}
-
-body[dir=ltr] div[ltype*=nick] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
 }
 
 body[dir=ltr] div[ltype*=mode] .message:before {
 	
 }
 
-body[dir=ltr] div[ltype*=mode] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
-}
-
 body[dir=ltr] div[ltype*=topic] .message:before {
 	
-}
-
-body[dir=ltr] div[ltype*=topic] .message {
-  	color: #848851;
-  	white-space: normal;
-    display: block;
-    overflow: hidden;
-    margin-left: 7.6em;
 }
 
 /* Nickname Colors */
