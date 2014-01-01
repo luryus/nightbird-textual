@@ -185,7 +185,7 @@ body a img {
 body img {
 	display: block;
 	max-width: 95%;
-	margin: 10px 15px 10px 15ex;
+	margin-top: 10px;
 }
 
 /* Remember Line */
