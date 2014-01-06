@@ -103,6 +103,7 @@ body[dir=ltr] .time {
     float:right;
     white-space: nowrap;
     vertical-align: top;
+    border-left: solid transparent 0.6em;
     -webkit-transition: color 200ms linear;
 }
 
