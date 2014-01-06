@@ -22,7 +22,6 @@ body {
  	z-index: 100;
 	overflow-y: visible;
 	background-color: #242424;
-	font-family: "Roboto";
 	width:100%;
 }
 
@@ -242,7 +241,7 @@ body div.line[ltype*=wallops] .message {
 	white-space: normal;
     display: block;
     overflow: hidden;
-    margin-left: 6em;
+   /* margin-left: 6em;*/
 }
 
 body div[ltype*=notice] .sender {
@@ -269,7 +268,7 @@ body div[ltype="privmsg"] .message {
 	white-space: normal;
     display: block;
     overflow: hidden;
-    margin-left: 6em;
+    /*margin-left: 6em;*/
     color: #bbb;
 }
 
@@ -317,7 +316,6 @@ body[dir=ltr] div[ltype*=action] .sender:before {
 
 body[dir=ltr] div[ltype*=action] .sender:after {
 	content: "";
-  	/* margin-right: 0.4em; */
 }
 
 
