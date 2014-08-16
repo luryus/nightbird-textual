@@ -2,12 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Nickname Format</key>
-	<string>%n</string>
-	<key>Timestamp Format</key>
-	<string>%H:%M:%S</string>
-	<key>Indentation Offset</key>
-	<integer>6</integer>
+	<key>Template Engine Version</key>
+	<integer>2</integer>
 	<key>Underlying Window Color</key>
 	<string>#242424</string>
 	<key>Force Invert Sidebars</key>
