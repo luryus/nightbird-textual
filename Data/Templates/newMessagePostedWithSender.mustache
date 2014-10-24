@@ -6,11 +6,14 @@
 		mtype="{{nicknameType}}"
 {{/isRemoteMessage}}
 
+{{#isEncrypted}}
+		encrypted="true"
+{{/isEncrypted}}
+
 		command="{{rawCommand}}"
 		highlight="{{highlightAttributeRepresentation}}" 
 		class="line {{lineClassAttributeRepresentation}}" 
-		id="line-{{lineNumber}}"
-		time="{{lineRenderTime}}">
+		id="line-{{lineNumber}}">
 
 		
 		
@@ -28,7 +31,15 @@
 		<span class="message" ltype="{{lineType}}">{{{formattedMessage}}}
 					{{#inlineMediaAvailable}}
 						{{#inlineMediaArray}}
-							<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}')"><img src="{{{imageURL}}}" class="inlineimage" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none; max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+
+						<span class="inlineImageCell" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none;">
+							<span class="closeButton" href="#" onclick="Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}', false);">×</span>
+
+							<a href="{{{anchorLink}}}" onclick="return InlineImageLiveResize.negateAnchorOpen()">
+								<img src="{{{imageURL}}}" class="image" style="max-width: {{preferredMaximumWidth}}px;" />
+							</a>
+						</span>
+						
 						{{/inlineMediaArray}}
 					{{/inlineMediaAvailable}}</span>
 		<span class="time">{{formattedTimestamp}}</span>

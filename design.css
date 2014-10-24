@@ -1,8 +1,6 @@
 /* Basic Body Structure */
 
 * {
-	margin: 0;
-	padding: 0;
 	word-wrap: break-word;
 }	
 
@@ -12,42 +10,39 @@ b {
 
 body {
 	color: #fff;
-	height: 100%;
  	z-index: 100;
-	overflow-y: visible;
 	background-color: #242424;
-	width:100%;
 }
 
-body div#body_home {
+div#body_home {
 	left: 0;
 	right: 0;
 	bottom: 0;
 	width: 100%;
+	height: 100%;
 	z-index: 100;
-	max-height: 99.99%;
 	position: absolute;
 	opacity: 0; /* Set by JavaScript */
 	-webkit-transition: opacity 0.8s linear;
 }
 
-body .line {
- 	margin-top: -1px;
+.line {
  	-webkit-transition: background-color 100ms linear;
  	display: -webkit-flex;
 	-webkit-flex-direction: row;
 	-webkit-flex-wrap: nowrap;
+	padding: 3px 5px 3px 5px;
 }
 
-body .line:hover {
+.line:hover {
 	background: #2d2d2d;
 }
 
-body .line:hover > .time {
+.line:hover > .time {
 	color: #949494;
 }
 
-body[dir=ltr] .sender {
+.line .sender {
 	margin-left:0em;
     border-right: solid transparent 0.6em;
     text-align:right;
@@ -60,15 +55,35 @@ body[dir=ltr] .sender {
 	text-overflow: ellipsis;
 }
 
-body[dir=ltr] .sender:hover {
+.line .sender:hover {
 	width:auto;
 	-webkit-flex: 1 0 auto;
 }
 
+.line .message {
+	white-space: normal;
+    display: block;
+    overflow: hidden;
+    width:100%;
+}
+
+/* Time */
+
+.time {
+	color: #646464;
+    text-align:right;
+    width:auto;
+    -webkit-flex: 1 0 auto;
+    white-space: nowrap;
+    display: block;
+    vertical-align: top;
+    border-left: solid transparent 0.6em;
+    -webkit-transition: color 200ms linear;
+}
 
 /* Loading Screen */
 
-body div#loading_screen {
+div#loading_screen {
 	position:absolute; 
 	top: 50%;
 	left: 50%;
@@ -86,19 +101,7 @@ body div#loading_screen {
 	-webkit-transition: opacity 0.8s linear;
 }
 
-/* Time */
 
-body[dir=ltr] .time {
-	color: #646464;
-    text-align:right;
-    width:auto;
-    -webkit-flex: 1 0 auto;
-    white-space: nowrap;
-    display: block;
-    vertical-align: top;
-    border-left: solid transparent 0.6em;
-    -webkit-transition: color 200ms linear;
-}
 
 /* Encryption Lock */
 
@@ -168,11 +171,11 @@ a:hover {
 
 /* Images */
 
-body a img {
+a img {
 	border: 2px solid gray;
 }
 
-body img {
+img {
 	display: block;
 	max-width: 95%;
 	margin-top: 10px;
@@ -180,7 +183,7 @@ body img {
 
 /* Remember Line */
 
-div[id=mark] {
+div#mark {
 	position: relative;
 	z-index: 295;
 	margin-top: -1px;
@@ -206,7 +209,6 @@ body div.line[ltype*=wallops] {
   	z-index: 191;
 	background: #400;
   	position: relative;
- 	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #811;
 	border-bottom: 1px solid #811;
 }
@@ -229,15 +231,6 @@ body div.line[ltype*=wallops]:hover > .time {
 	color: #d40000;
 }
 
-body div.line[ltype*=ctcp] .message,
-body div.line[ltype*=notice] .message,
-body div.line[ltype*=wallops] .message {
-	white-space: normal;
-    display: block;
-    overflow: hidden;
-    width:100%;
-}
-
 body div[ltype*=notice] .sender {
 	color: #f00;
 	font-weight: 600;
@@ -245,25 +238,16 @@ body div[ltype*=notice] .sender {
 
 /* PRIVMSG */
 
-body div.line[ltype*=privmsg][highlight=false] {
- 	padding: 3px 5px 3px 5px;
-}
-
 body div.line[ltype*=privmsg][highlight=true],
 body div.line[ltype*=action][highlight=true] {
 	font-weight: 600;
- 	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #444;
 	border-bottom: 1px solid #444;
   	background-color: #353535 !important;
 }
 
 body div[ltype="privmsg"] .message {
-	white-space: normal;
-    display: block;
-    overflow: hidden;
     color: #bbb;
-    width:100%;
 }
 
 body div[ltype="privmsg"] .message:after {
@@ -280,16 +264,8 @@ body div[ltype*=privmsg] .sender {
 
 /* ACTION */
 
-body div.line[ltype*=action] {
- 	padding: 3px 5px 3px 5px;
-}
-
 body div[ltype="action"] .message {
 	color: #848851;
-	white-space: normal;
-    display: block;
-    overflow: hidden;
-    width:100%;
 }
 
 body div[ltype*=action] .sender {
@@ -312,7 +288,6 @@ body div.line[ltype*=rawhtml] {
 	color: #777;
   	z-index: 190;
   	position: relative;
- 	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #444;
 	border-bottom: 1px solid #444;
 }
@@ -337,7 +312,6 @@ body div.line[ltype*=nick],
 body div.line[ltype*=mode],
 body div.line[ltype*=website],
 body div.line[ltype*=topic] {
- 	padding: 3px 5px 3px 5px;
 	color: #848851;
 }
 
@@ -351,10 +325,6 @@ body div.line[ltype*=mode] .message,
 body div.line[ltype*=website] .message,
 body div.line[ltype*=topic]  .message {
 	color: #848851;
-  	white-space: normal;
-    overflow: hidden;
-    width:100%;
-    display: block;
 }
 
 
@@ -558,3 +528,42 @@ body .inline_nickname[colornumber='30'] {
 .effect[bgcolor-number='13'] { background-color: #ff00ff; }
 .effect[bgcolor-number='14'] { background-color: #888888; }
 .effect[bgcolor-number='15'] { background-color: #cccccc; }
+
+
+@media all and (max-width: 30em) {
+	html {
+		max-width: 30em;
+	}
+
+	.line {
+ 		display: -webkit-flex;
+		-webkit-flex-direction: row;
+		-webkit-flex-wrap: wrap;
+		padding-top: 0.25em;
+		padding-bottom: 0.25em;
+		padding-left:0.5em;
+		padding-right:0.5em;
+		border-top: 1px solid #111;
+	}
+
+	.sender {
+		-webkit-order: 1;
+		-webkit-flex: 1 0 auto;
+		text-align: left !important;
+		width:auto; 
+	}
+
+	.sender:hover {
+
+	}
+
+	.time {
+		-webkit-order: 2;
+		width: auto;
+		-webkit-flex: 1 0 auto;
+	}
+
+	.message {
+		-webkit-order: 3;
+	}
+}
